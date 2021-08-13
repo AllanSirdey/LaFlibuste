@@ -20,15 +20,12 @@ export class PlayersComponent implements OnInit {
       //this.name = "test";
       });;
   }
-
 }
 
 export interface Player {
-    league: Array<{
-        standard: Array<{
-          volumeInfo: {
-                      firstName: string;
-                  }
-        }>;
-      }>;
+  league: {
+    standard: Array<{
+      firstName: string;
+    }>;
+  };
 }
