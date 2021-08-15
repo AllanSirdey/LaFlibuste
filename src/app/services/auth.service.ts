@@ -19,12 +19,7 @@ export class AuthService {
         .then(
           (userCredential) => {
             // Enregistrement dans la base du nouvel utilisateur
-            firebase.database().ref('/users').push({
-              email: userCredential.user.email,
-              uid: userCredential.user.uid,
-              prenom: user.prenom,
-              nom: user.nom
-            });
+            firebase.database().ref('/users/' + userCredential.user.uid).set(user);
             resolve();
           },
           (error) => {

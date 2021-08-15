@@ -16,6 +16,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { PlayersComponent } from './components/players/players.component';
 import { ProfilComponent } from './components/profil/profil.component';
+import { AccueilComponent } from './components/accueil/accueil.component';
 
 
 
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     SignupComponent,
     SigninComponent,
     PlayersComponent,
-    ProfilComponent
+    ProfilComponent,
+    AccueilComponent
   ],
   imports: [
     BrowserModule,

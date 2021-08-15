@@ -20,14 +20,6 @@ export class PlayersComponent implements OnInit {
       this.name = players.league.standard[0].firstName;
       });
   }
-
-  enregistrerUtilisateur(){
-    firebase.database().ref('/users').push({
-      prenom: "allan",
-      nom: "SIRDEY"
-    });
-    console.log("enregistrer utilisateur");
-  }
 }
 
 export interface Player {
