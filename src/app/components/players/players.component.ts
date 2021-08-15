@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import firebase from 'firebase';
 
 @Component({
   selector: 'app-players',
@@ -17,8 +18,15 @@ export class PlayersComponent implements OnInit {
   ngOnInit(): void {
     this._httpClient.get<Player>(this.playersUrl).subscribe(players => {
       this.name = players.league.standard[0].firstName;
-      //this.name = "test";
-      });;
+      });
+  }
+
+  enregistrerUtilisateur(){
+    firebase.database().ref('/users').push({
+      prenom: "allan",
+      nom: "SIRDEY"
+    });
+    console.log("enregistrer utilisateur");
   }
 }
 

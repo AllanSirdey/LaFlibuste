@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase';
+import { User } from 'src/app/models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -7,13 +8,23 @@ import firebase from 'firebase';
 export class AuthService {
   constructor() {}
 
-  createNewUser(email: string, password: string) {
+  /*
+  * Service de création d'un nouvel Utilisateur
+  */
+  createNewUser(user: User, password: string) {
     return new Promise((resolve, reject) => {
       firebase
         .auth()
-        .createUserWithEmailAndPassword(email, password)
+        .createUserWithEmailAndPassword(user.email, password)
         .then(
-          () => {
+          (userCredential) => {
+            // Enregistrement dans la base du nouvel utilisateur
+            firebase.database().ref('/users').push({
+              email: userCredential.user.email,
+              uid: userCredential.user.uid,
+              prenom: user.prenom,
+              nom: user.nom
+            });
             resolve();
           },
           (error) => {
@@ -23,6 +34,9 @@ export class AuthService {
     });
   }
 
+  /*
+  * Service de connexion d'un Utilisateur
+  */
   signInUser(email: string, password: string) {
     return new Promise((resolve, reject) => {
       firebase

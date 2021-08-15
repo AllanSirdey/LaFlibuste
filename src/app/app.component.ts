@@ -13,6 +13,7 @@ export class AppComponent {
     const firebaseConfig = {
         apiKey: "AIzaSyD-FM3WXYlpnhJDI6LzWTY5BYCAEQSW224",
         authDomain: "la-flib.firebaseapp.com",
+        databaseURL: "https://la-flib-default-rtdb.europe-west1.firebasedatabase.app/",
         projectId: "la-flib",
         storageBucket: "la-flib.appspot.com",
         messagingSenderId: "449122164912",
