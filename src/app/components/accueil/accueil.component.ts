@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import firebase from 'firebase';
 
 @Component({
   selector: 'app-accueil',
@@ -10,7 +9,6 @@ export class AccueilComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

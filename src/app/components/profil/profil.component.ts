@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import firebase from 'firebase';
+import { UtilisateurService } from 'src/app/services/utilisateur.service';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -10,23 +10,19 @@ import { User } from 'src/app/models/user';
 export class ProfilComponent implements OnInit {
 
   user: User = new User();
-  prenom: string;
 
-  constructor() { }
+  constructor(private utilisateurService: UtilisateurService) { }
 
   ngOnInit(): void {
-    // Récupération de l'uid de l'utilisateur connecté
-    const user = firebase.auth().currentUser;
+    // Récupération de l'utilisateur connecté
+    const user = this.utilisateurService.getUtilisateurConnecte();
 
-    // Récupération des infos de l'utilisateur en base de données
-    firebase.database().ref('/users/' + user.uid).on('value', (snapshot) => {
-      const data = snapshot.val();
-
-      // mise à jour de l'objet user
-      this.user.prenom = data.prenom;
-      this.user.nom = data.nom;
-      this.user.email = data.email;
-    });
+    // Récupération des infos de l'utilisateur
+    this.utilisateurService.getUtilisateur(user.uid).then(
+      (user: User) => {
+        this.user = user;
+      }
+    );
 
   }
 

@@ -10,17 +10,24 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { SigninComponent } from './components/auth/signin/signin.component';
+import { PlayersComponent } from './components/players/players.component';
+import { ProfilComponent } from './components/profil/profil.component';
+import { AccueilComponent } from './components/accueil/accueil.component';
+import { ClassementComponent } from './components/classement/classement.component';
 
 // Services
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
-import { PlayersComponent } from './components/players/players.component';
-import { ProfilComponent } from './components/profil/profil.component';
-import { AccueilComponent } from './components/accueil/accueil.component';
+import { UtilisateurService } from './services/utilisateur.service';
 
 
 
 const appRoutes: Routes = [
+  {
+    path: 'accueil',
+    canActivate: [AuthGuardService],
+    component: AccueilComponent
+  },
   { path: 'auth/signup', component: SignupComponent },
   { path: 'auth/signin', component: SigninComponent },
   {
@@ -45,7 +52,8 @@ const appRoutes: Routes = [
     SigninComponent,
     PlayersComponent,
     ProfilComponent,
-    AccueilComponent
+    AccueilComponent,
+    ClassementComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +62,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService, UtilisateurService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

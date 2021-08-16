@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Utilisateurs</h2>
+    <div class="list-group">
+      <button
+        class="list-group-item"
+        *ngFor="let utilisateur of utilisateurs; let i = index">
+        <h3 class="list-group-item-heading">
+          {{ utilisateur.prenom }}
+        </h3>
+        <p class="list-group-item-text">{{ utilisateur.nom }}</p>
+      </button>
+    </div>
+  </div>
+</div>
