@@ -22,7 +22,6 @@ export class ClassementComponent implements OnInit {
       }
     );
     this.utilisateurService.emitUtilisateurs();
-
   }
 
 }

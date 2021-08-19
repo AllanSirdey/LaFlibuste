@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 
 @Injectable()
-export class UtilisateurService{
+export class UtilisateurService {
 
   utilisateurs: User[] = [];
   utilisateursSubject = new Subject<User[]>();
@@ -18,42 +18,44 @@ export class UtilisateurService{
     this.getAllUtilisateurs();
   }
 
-  emitUtilisateurs(){
+  emitUtilisateurs() {
     this.utilisateursSubject.next(this.utilisateurs);
   }
 
   /*
   * Récupérer tous les utilisateurs dans la base de données firebase
   */
-  getAllUtilisateurs(){
+  getAllUtilisateurs() {
     firebase.database().ref('/users')
       .on('value', (data: DataSnapshot) => {
-        data.forEach( (utilisateur) => {
+        this.utilisateurs = [];
+        data.forEach((utilisateur) => {
           this.utilisateurs.push(utilisateur.val());
         });
         this.emitUtilisateurs();
-        }
-    );
+      }
+      );
   }
 
   /*
   * Enregistrer un utilisateur dans la base de données firebase
   */
-  enregistrerUtilisateur(uid: string, user: User){
-    firebase.database().ref('/users/' + uid).set(user);
+  enregistrerUtilisateur(uid: string, user: User) {
+    firebase.database().ref('users').child(uid).set(user);
+    this.emitUtilisateurs();
   }
 
   /*
   * Récupérer l'utilisateur connecté
   */
-  getUtilisateurConnecte(){
+  getUtilisateurConnecte() {
     return firebase.auth().currentUser;
   }
 
   /*
   * Récupérer un utilisateur dans la base de données firebase
   */
-  getUtilisateur(uid: string){
+  getUtilisateur(uid: string) {
     return new Promise(
       (resolve, reject) => {
         firebase.database().ref('/users/' + uid).once('value').then(

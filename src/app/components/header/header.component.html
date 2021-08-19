@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<!--<nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
       <li routerLinkActive="active">
@@ -26,5 +26,27 @@
         >
       </li>
     </ul>
+  </div>
+</nav>-->
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-teal w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row"  *ngIf="isAuth">
+    <div class="w3-col s4">
+      <img src="/assets/logo.jpg" class="w3-circle w3-margin-right" style="width:86px">
+    </div>
+    <div class="w3-col s8 w3-bar">
+      <span>Welcome, <strong>{{prenom}}</strong></span><br>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a routerLink="accueil" routerLinkActive="active" class="w3-bar-item w3-button w3-padding" *ngIf="isAuth">Accueil</a>
+    <a routerLink="profil" routerLinkActive="active" class="w3-bar-item w3-button w3-padding" *ngIf="isAuth">Mon profil</a>
+    <a routerLink="players" routerLinkActive="active" class="w3-bar-item w3-button w3-padding" *ngIf="isAuth">Joueur NBA</a>
+    <a routerLink="auth/signin" routerLinkActive="active" class="w3-bar-item w3-button w3-padding" *ngIf="!isAuth">Connexion</a>
+    <a routerLink="auth/signup" routerLinkActive="active" class="w3-bar-item w3-button w3-padding" *ngIf="!isAuth">Créer un compte</a>
+    <a (click)="onSignOut()" class="w3-bar-item w3-button w3-padding" style="cursor: pointer" *ngIf="isAuth">Déconnexion</a>
   </div>
 </nav>

@@ -58,7 +58,9 @@ export class SignupComponent implements OnInit {
     const user = <User>({
       prenom: prenom,
       nom: nom,
-      email: email
+      email: email,
+      points: 0,
+      classement: 0
     });
 
     this.authService.createNewUser(user, password).then(

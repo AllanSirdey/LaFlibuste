@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import firebase from 'firebase';
 import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/models/user';
+import { UtilisateurService } from 'src/app/services/utilisateur.service';
 
 @Component({
   selector: 'app-header',
@@ -11,16 +13,25 @@ export class HeaderComponent implements OnInit {
 
   isAuth: boolean;
 
-  constructor(private authService: AuthService) {}
+  prenom: string;
+
+  constructor(private authService: AuthService, private utilisateurService: UtilisateurService) {}
 
     ngOnInit() {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           this.isAuth = true;
+          this.utilisateurService.getUtilisateur(user.uid).then(
+            (user: User) => {
+              this.prenom = user.prenom;
+            }
+          );
         } else {
           this.isAuth = false;
         }
       });
+
+
     }
 
     onSignOut() {

@@ -7,7 +7,7 @@ import { UtilisateurService } from 'src/app/services/utilisateur.service';
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private utilisateurService: UtilisateurService) {}
+  constructor(private utilisateurService: UtilisateurService) { }
 
   /*
   * Service de création d'un nouvel Utilisateur
@@ -20,6 +20,7 @@ export class AuthService {
         .then(
           (userCredential) => {
             // Enregistrement dans la base du nouvel utilisateur
+            user.uid = userCredential.user.uid;
             this.utilisateurService.enregistrerUtilisateur(userCredential.user.uid, user);
             resolve();
           },

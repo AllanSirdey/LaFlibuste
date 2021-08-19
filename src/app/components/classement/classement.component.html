@@ -1,15 +1,18 @@
-<div class="row">
-  <div class="col-xs-12">
-    <h2>Utilisateurs</h2>
-    <div class="list-group">
-      <button
-        class="list-group-item"
-        *ngFor="let utilisateur of utilisateurs; let i = index">
-        <h3 class="list-group-item-heading">
-          {{ utilisateur.prenom }}
-        </h3>
-        <p class="list-group-item-text">{{ utilisateur.nom }}</p>
-      </button>
-    </div>
-  </div>
+<div class="w3-container">
+  <h2>Classements</h2>
+  <table class="w3-table w3-bordered w3-striped w3-border test w3-hoverable w3-card-4">
+    <tbody>
+      <tr class="table-header">
+        <th>Flibustier</th>
+        <th>Points</th>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr *ngFor="let utilisateur of utilisateurs; let i = index">
+        <td>{{ utilisateur.prenom }}</td>
+        <td>{{ utilisateur.points }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+<hr>

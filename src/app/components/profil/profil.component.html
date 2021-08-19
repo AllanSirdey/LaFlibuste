@@ -1,3 +1,10 @@
+<h1>Mon profil</h1>
 <p>Prenom: {{user.prenom}}</p>
 <p>Nom: {{user.nom}}</p>
 <p>Email: {{user.email}}</p>
+<p>Points: {{user.points}}</p>
+<p>Classement: {{user.classement}}</p>
+
+<button class="w3-button w3-circle w3-teal" (click)="ajouterPoints(1)">+</button>
+
+<button class="w3-button w3-circle w3-teal" (click)="supprimerPoints(1)">-</button>
