@@ -9,23 +9,40 @@ import firebase from 'firebase';
 })
 export class PlayersComponent implements OnInit {
 
-  name: string;
+  joueurs: Player[] = [];
 
   constructor(private _httpClient: HttpClient) { }
 
   private playersUrl = 'http://data.nba.net/data/10s/prod/v1/2020/players.json';
 
   ngOnInit(): void {
-    this._httpClient.get<Player>(this.playersUrl).subscribe(players => {
-      this.name = players.league.standard[0].firstName;
+
+
+    this._httpClient.get<PlayerResponse>(this.playersUrl).subscribe(players => {
+      players.league.standard.forEach((player) => {
+        const p = <Player>({
+          prenom: player.firstName,
+          nom: player.lastName
+        });
+
+        this.joueurs.push(p);
       });
+    });
+    console.log(this.joueurs);
+
   }
 }
 
-export interface Player {
+export interface PlayerResponse {
   league: {
     standard: Array<{
       firstName: string;
+      lastName: string;
     }>;
   };
+}
+
+export interface Player {
+  prenom: string;
+  nom: string;
 }

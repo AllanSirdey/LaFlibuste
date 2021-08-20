@@ -1,9 +1,29 @@
 <h1>Mon profil</h1>
-<p>Prenom: {{user.prenom}}</p>
-<p>Nom: {{user.nom}}</p>
-<p>Email: {{user.email}}</p>
-<p>Points: {{user.points}}</p>
-<p>Classement: {{user.classement}}</p>
+
+<table class="w3-table w3-bordered w3-striped w3-border w3-card-4">
+  <tbody>
+    <tr>
+      <td>Prenom</td>
+      <td>{{user.prenom}}</td>
+    </tr>
+    <tr>
+      <td>Nom</td>
+      <td>{{user.nom}}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+      <td>Points</td>
+      <td>{{user.points}}</td>
+    </tr>
+    <tr>
+      <td>Classement</td>
+      <td>{{user.classement}}</td>
+    </tr>
+  </tbody>
+</table>
 
 <button class="w3-button w3-circle w3-teal" (click)="ajouterPoints(1)">+</button>
 

@@ -1,1 +1,9 @@
-<p>players works! {{name}}</p>
+<h1>Joueurs NBA</h1>
+
+<table class="w3-table w3-bordered w3-striped w3-border test w3-hoverable w3-card-4">
+  <tbody>
+    <tr *ngFor="let joueur of joueurs;">
+      <td>{{ joueur.nom }}, {{ joueur.prenom }}</td>
+    </tr>
+  </tbody>
+</table>
