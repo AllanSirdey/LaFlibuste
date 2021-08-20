@@ -42,7 +42,6 @@ export class UtilisateurService {
   */
   enregistrerUtilisateur(uid: string, user: User) {
     firebase.database().ref('users').child(uid).set(user);
-    this.emitUtilisateurs();
   }
 
   /*
@@ -50,6 +49,20 @@ export class UtilisateurService {
   */
   getUtilisateurConnecte() {
     return firebase.auth().currentUser;
+  }
+
+  /*
+  * Récupérer un utilisateur depuis la liste
+  */
+  getUtilisateurFromList(uid: string) {
+    const utilisateurIndex = this.utilisateurs.findIndex(
+      (utilisateurkEl) => {
+        if (utilisateurkEl.uid === uid) {
+          return true;
+        }
+      }
+    );
+    return this.utilisateurs[utilisateurIndex];
   }
 
   /*

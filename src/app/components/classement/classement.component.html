@@ -8,7 +8,7 @@
       </tr>
     </tbody>
     <tbody>
-      <tr *ngFor="let utilisateur of utilisateurs; let i = index">
+      <tr *ngFor="let utilisateur of utilisateurs; let i = index" (click)="onProfilUtilisateur(utilisateur.uid)">
         <td>{{ utilisateur.prenom }}</td>
         <td>{{ utilisateur.points }}</td>
       </tr>

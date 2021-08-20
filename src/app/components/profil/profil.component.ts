@@ -18,15 +18,11 @@ export class ProfilComponent implements OnInit {
     // Récupération de l'utilisateur connecté
     this.uid = this.utilisateurService.getUtilisateurConnecte().uid;
 
-    // Récupération des infos de l'utilisateur
-    const utilisateurIndex = this.utilisateurService.utilisateurs.findIndex(
-      (utilisateurkEl) => {
-        if (utilisateurkEl.uid === this.uid) {
-          return true;
-        }
+    this.utilisateurService.getUtilisateur(this.uid).then(
+      (user: User) => {
+        this.user = user;
       }
     );
-    this.user = this.utilisateurService.utilisateurs[utilisateurIndex]
   }
 
   ajouterPoints(points: number) {

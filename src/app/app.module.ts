@@ -14,6 +14,7 @@ import { PlayersComponent } from './components/players/players.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { ClassementComponent } from './components/classement/classement.component';
+import { UtilisateurComponent } from './components/utilisateur/utilisateur.component';
 
 // Services
 import { AuthService } from './services/auth.service';
@@ -36,6 +37,11 @@ const appRoutes: Routes = [
     component: PlayersComponent
   },
   {
+    path: 'utilisateurs/view/:uid',
+    canActivate: [AuthGuardService],
+    component: UtilisateurComponent
+  },
+  {
     path: 'profil',
     canActivate: [AuthGuardService],
     component: ProfilComponent
@@ -53,7 +59,8 @@ const appRoutes: Routes = [
     PlayersComponent,
     ProfilComponent,
     AccueilComponent,
-    ClassementComponent
+    ClassementComponent,
+    UtilisateurComponent
   ],
   imports: [
     BrowserModule,
