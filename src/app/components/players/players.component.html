@@ -1,9 +1,16 @@
 <h1>Joueurs NBA</h1>
 
-<table class="w3-table w3-bordered w3-striped w3-border test w3-hoverable w3-card-4">
+<label for="joueur-select">Choisir un joueur:</label>
+
+<select class="w3-select" id="joueur-select" name="option">
+    <option value="" disabled>--Please choose an option--</option>
+    <option *ngFor="let joueur of joueurs;" value="joueur.nom">{{ joueur.nom }}, {{ joueur.prenom }}</option>
+</select>
+
+<!--<table class="w3-table w3-bordered w3-striped w3-border test w3-hoverable w3-card-4">
   <tbody>
     <tr *ngFor="let joueur of joueurs;">
       <td>{{ joueur.nom }}, {{ joueur.prenom }}</td>
     </tr>
   </tbody>
-</table>
+</table>-->

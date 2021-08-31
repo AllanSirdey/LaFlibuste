@@ -20,6 +20,8 @@ import { UtilisateurComponent } from './components/utilisateur/utilisateur.compo
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { UtilisateurService } from './services/utilisateur.service';
+import { EvenementsComponent } from './components/evenements/evenements.component';
+import { LiensComponent } from './components/liens/liens.component';
 
 
 
@@ -60,7 +62,9 @@ const appRoutes: Routes = [
     ProfilComponent,
     AccueilComponent,
     ClassementComponent,
-    UtilisateurComponent
+    UtilisateurComponent,
+    EvenementsComponent,
+    LiensComponent
   ],
   imports: [
     BrowserModule,
