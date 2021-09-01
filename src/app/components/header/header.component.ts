@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   isAuth: boolean;
 
   prenom: string;
-  classement: string;
+  classement: number;
 
   constructor(private authService: AuthService, private utilisateurService: UtilisateurService) { }
 

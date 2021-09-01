@@ -16,4 +16,8 @@ export class AccueilComponent implements OnInit {
     this.router.navigate(['/reglement']);
   }
 
+  onListeUtilisateurs() {
+    this.router.navigate(['/utilisateurs']);
+  }
+
 }

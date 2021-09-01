@@ -23,6 +23,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { UtilisateurService } from './services/utilisateur.service';
 import { ReglementComponent } from './components/reglement/reglement.component';
+import { UtilisateursListComponent } from './components/utilisateurs-list/utilisateurs-list.component';
 
 
 
@@ -50,6 +51,11 @@ const appRoutes: Routes = [
     component: ProfilComponent
   },
   { path: 'reglement', component: ReglementComponent },
+  {
+    path: 'utilisateurs',
+    canActivate: [AuthGuardService],
+    component: UtilisateursListComponent
+  },
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '' }
 ];
@@ -67,7 +73,8 @@ const appRoutes: Routes = [
     UtilisateurComponent,
     EvenementsComponent,
     LiensComponent,
-    ReglementComponent
+    ReglementComponent,
+    UtilisateursListComponent
   ],
   imports: [
     BrowserModule,
