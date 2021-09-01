@@ -11,6 +11,9 @@ export class UtilisateurService {
   utilisateurs: User[] = [];
   utilisateursSubject = new Subject<User[]>();
 
+  utilisateurConnecte: User;
+  utilisateurConnecteSubject = new Subject<User>();
+
   /*
   * Constructeur
   */
@@ -20,6 +23,10 @@ export class UtilisateurService {
 
   emitUtilisateurs() {
     this.utilisateursSubject.next(this.utilisateurs);
+  }
+
+  emitUtilisateurConnecte() {
+    this.utilisateurConnecteSubject.next(this.utilisateurConnecte);
   }
 
   /*

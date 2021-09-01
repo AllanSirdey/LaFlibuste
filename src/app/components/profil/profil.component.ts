@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
 import { User } from 'src/app/models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profil',
@@ -12,7 +13,7 @@ export class ProfilComponent implements OnInit {
   uid: string;
   user: User;
 
-  constructor(private utilisateurService: UtilisateurService) { }
+  constructor(private utilisateurService: UtilisateurService, private router: Router) { }
 
   ngOnInit(): void {
     // Récupération de l'utilisateur connecté
@@ -34,6 +35,12 @@ export class ProfilComponent implements OnInit {
   supprimerPoints(points: number) {
     this.user.points -= points;
     this.utilisateurService.enregistrerUtilisateur(this.uid, this.user);
+  }
+
+  onEditProfile(uid: string) {
+    console.log(uid);
+
+    this.router.navigate(['/profil', 'edit', uid]);
   }
 
 }

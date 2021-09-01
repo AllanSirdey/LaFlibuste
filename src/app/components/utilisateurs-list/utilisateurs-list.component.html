@@ -1,68 +1,16 @@
 <h1>Meet the flib</h1>
 
 <div class="w3-row-padding">
-  <div class="w3-quarter w3-margin-bottom">
+  <div *ngFor="let utilisateur of utilisateurs" class="w3-quarter w3-margin-bottom">
     <div class="w3-card-4">
       <header class="w3-container w3-light-grey">
-        <h3>John Doe</h3>
+        <h3>{{ utilisateur.prenom }} {{ utilisateur.nom }}</h3>
       </header>
       <div class="w3-container">
-        <img src="https://fr.global.nba.com/media/img/teams/00/logos/MIA_logo.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+        <img src="{{utilisateur.photo_profil}}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
         <p>CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities.</p><br>
       </div>
-      <button class="w3-button w3-block w3-dark-grey">+ Infos</button>
-    </div>
-  </div>
-
-  <div class="w3-quarter w3-margin-bottom">
-    <div class="w3-card-4">
-      <header class="w3-container w3-light-grey">
-        <h3>John Doe</h3>
-      </header>
-      <div class="w3-container">
-        <img src="https://fr.global.nba.com/media/img/teams/00/logos/NYK_logo.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <p>CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities.</p><br>
-      </div>
-      <button class="w3-button w3-block w3-dark-grey">+ Infos</button>
-    </div>
-  </div>
-
-  <div class="w3-quarter w3-margin-bottom">
-    <div class="w3-card-4">
-      <header class="w3-container w3-light-grey">
-        <h3>John Doe</h3>
-      </header>
-      <div class="w3-container">
-        <img src="https://www.mpadeco.com/thumb.php?zc=3&f=0&src=/sites/mpadeco/files/products/d9704.png&fl=none&w=360&h=360" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <p>CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities.</p><br>
-      </div>
-      <button class="w3-button w3-block w3-dark-grey">+ Infos</button>
-    </div>
-  </div>
-
-  <div class="w3-quarter w3-margin-bottom">
-    <div class="w3-card-4">
-      <header class="w3-container w3-light-grey">
-        <h3>John Doe</h3>
-      </header>
-      <div class="w3-container">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR1tGKKz3DMJAOAzZu0LhkoPj91BTBG2HOGw&usqp=CAU" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <p>CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities.</p><br>
-      </div>
-      <button class="w3-button w3-block w3-dark-grey">+ Infos</button>
-    </div>
-  </div>
-
-  <div class="w3-quarter w3-margin-bottom">
-    <div class="w3-card-4">
-      <header class="w3-container w3-light-grey">
-        <h3>John Doe</h3>
-      </header>
-      <div class="w3-container">
-        <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/f3/Hornets_de_Charlotte_logo.svg/1200px-Hornets_de_Charlotte_logo.svg.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <p>CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities.</p><br>
-      </div>
-      <button class="w3-button w3-block w3-dark-grey">+ Infos</button>
+      <button (click)="onProfilUtilisateur(utilisateur.uid)" class="w3-button w3-block w3-dark-grey">+ Infos</button>
     </div>
   </div>
 </div>

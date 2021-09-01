@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilisateurService } from 'src/app/services/utilisateur.service';
+import { Subscription } from 'rxjs';
+import { User } from 'src/app/models/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-utilisateurs-list',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UtilisateursListComponent implements OnInit {
 
-  constructor() { }
+  utilisateurs: User[];
+  utilisateursSubscription: Subscription;
+
+  constructor(private utilisateurService: UtilisateurService, private router: Router) { }
 
   ngOnInit(): void {
+    this.utilisateursSubscription = this.utilisateurService.utilisateursSubject.subscribe(
+      (utilisateurs: User[]) => {
+        this.utilisateurs = utilisateurs;
+      }
+    );
+    this.utilisateurService.emitUtilisateurs();
+  }
+
+  onProfilUtilisateur(uid: string) {
+    this.router.navigate(['/utilisateurs', 'view', uid]);
   }
 
 }

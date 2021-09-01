@@ -5,4 +5,5 @@ export class User {
   email: string;
   points: number;
   classement: number;
+  photo_profil: string;
 }

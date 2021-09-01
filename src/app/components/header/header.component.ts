@@ -13,8 +13,7 @@ export class HeaderComponent implements OnInit {
 
   isAuth: boolean;
 
-  prenom: string;
-  classement: number;
+  user: User;
 
   constructor(private authService: AuthService, private utilisateurService: UtilisateurService) { }
 
@@ -24,8 +23,7 @@ export class HeaderComponent implements OnInit {
         this.isAuth = true;
         this.utilisateurService.getUtilisateur(user.uid).then(
           (user: User) => {
-            this.prenom = user.prenom;
-            this.classement = user.classement;
+            this.user = user
           }
         );
       } else {
