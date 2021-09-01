@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UtilisateurService } from 'src/app/services/utilisateur.service';
@@ -17,8 +18,8 @@ export class EditComponent implements OnInit {
   /* Message d'erreur */
   errorMessage: string;
 
-  uid: string;
   user: User;
+  utilisateursConnecteSubscription: Subscription;
 
   /*
   * Création du component
@@ -32,14 +33,12 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
 
-    // Récupération de l'utilisateur connecté
-    this.uid = this.utilisateurService.getUtilisateurConnecte().uid;
-
-    this.utilisateurService.getUtilisateur(this.uid).then(
-      (user: User) => {
-        this.user = user;
+    this.utilisateursConnecteSubscription = this.utilisateurService.utilisateurConnecteSubject.subscribe(
+      (utilisateurConnecte: User) => {
+        this.user = utilisateurConnecte;
       }
     );
+    this.utilisateurService.emitUtilisateurConnecte();
   }
 
   initForm() {
@@ -60,7 +59,9 @@ export class EditComponent implements OnInit {
     this.user.prenom = prenom;
     this.user.nom = nom;
 
-    this.utilisateurService.enregistrerUtilisateur(this.uid, this.user);
+    this.utilisateurService.emitUtilisateurConnecte();
+
+    this.utilisateurService.enregistrerUtilisateur(this.user.uid, this.user);
   }
 
 }

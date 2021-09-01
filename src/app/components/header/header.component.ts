@@ -14,24 +14,18 @@ export class HeaderComponent implements OnInit {
   isAuth: boolean;
 
   user: User;
+  utilisateursConnecteSubscription: Subscription;
 
   constructor(private authService: AuthService, private utilisateurService: UtilisateurService) { }
 
   ngOnInit() {
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
+    this.isAuth = false;
+    this.utilisateursConnecteSubscription = this.utilisateurService.utilisateurConnecteSubject.subscribe(
+      (utilisateurConnecte: User) => {
+        this.user = utilisateurConnecte;
         this.isAuth = true;
-        this.utilisateurService.getUtilisateur(user.uid).then(
-          (user: User) => {
-            this.user = user
-          }
-        );
-      } else {
-        this.isAuth = false;
       }
-    });
-
-
+    );
   }
 
   onSignOut() {

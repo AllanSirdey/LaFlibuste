@@ -11,7 +11,7 @@ export class UtilisateurService {
   utilisateurs: User[] = [];
   utilisateursSubject = new Subject<User[]>();
 
-  utilisateurConnecte: User;
+  utilisateurConnecte = new User();
   utilisateurConnecteSubject = new Subject<User>();
 
   /*
@@ -19,6 +19,7 @@ export class UtilisateurService {
   */
   constructor() {
     this.getAllUtilisateurs();
+    this.getUtilisateurConnecte();
   }
 
   emitUtilisateurs() {
@@ -50,13 +51,25 @@ export class UtilisateurService {
   */
   enregistrerUtilisateur(uid: string, user: User) {
     firebase.database().ref('users').child(uid).set(user);
+    this.emitUtilisateurConnecte();
   }
 
   /*
   * Récupérer l'utilisateur connecté
   */
   getUtilisateurConnecte() {
-    return firebase.auth().currentUser;
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        var uid = user.uid;
+
+        firebase.database().ref('/users/' + uid)
+          .on('value', (data: DataSnapshot) => {
+            this.utilisateurConnecte = data.val();
+            this.emitUtilisateurConnecte();
+          }
+          );
+      }
+    });
   }
 
   /*
