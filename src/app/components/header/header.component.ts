@@ -14,28 +14,30 @@ export class HeaderComponent implements OnInit {
   isAuth: boolean;
 
   prenom: string;
+  classement: string;
 
-  constructor(private authService: AuthService, private utilisateurService: UtilisateurService) {}
+  constructor(private authService: AuthService, private utilisateurService: UtilisateurService) { }
 
-    ngOnInit() {
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          this.isAuth = true;
-          this.utilisateurService.getUtilisateur(user.uid).then(
-            (user: User) => {
-              this.prenom = user.prenom;
-            }
-          );
-        } else {
-          this.isAuth = false;
-        }
-      });
+  ngOnInit() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.isAuth = true;
+        this.utilisateurService.getUtilisateur(user.uid).then(
+          (user: User) => {
+            this.prenom = user.prenom;
+            this.classement = user.classement;
+          }
+        );
+      } else {
+        this.isAuth = false;
+      }
+    });
 
 
-    }
+  }
 
-    onSignOut() {
-      this.authService.signOutUser();
-    }
+  onSignOut() {
+    this.authService.signOutUser();
+  }
 
 }

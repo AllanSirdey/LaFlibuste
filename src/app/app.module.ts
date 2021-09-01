@@ -15,13 +15,14 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { ClassementComponent } from './components/classement/classement.component';
 import { UtilisateurComponent } from './components/utilisateur/utilisateur.component';
+import { EvenementsComponent } from './components/evenements/evenements.component';
+import { LiensComponent } from './components/liens/liens.component';
 
 // Services
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { UtilisateurService } from './services/utilisateur.service';
-import { EvenementsComponent } from './components/evenements/evenements.component';
-import { LiensComponent } from './components/liens/liens.component';
+import { ReglementComponent } from './components/reglement/reglement.component';
 
 
 
@@ -48,6 +49,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuardService],
     component: ProfilComponent
   },
+  { path: 'reglement', component: ReglementComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '' }
 ];
@@ -64,7 +66,8 @@ const appRoutes: Routes = [
     ClassementComponent,
     UtilisateurComponent,
     EvenementsComponent,
-    LiensComponent
+    LiensComponent,
+    ReglementComponent
   ],
   imports: [
     BrowserModule,

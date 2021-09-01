@@ -1,12 +1,19 @@
 <hr>
 <div class="w3-container w3-twothird">
   <app-classement></app-classement>
+  <hr>
 </div>
 <div class="w3-container w3-third">
   <app-evenements></app-evenements>
   <hr>
-  <app-liens></app-liens>
-</div>
-<div class="w3-container">
-  <p>hello</p>
+  <div class="w3-container w3-half">
+    <div (click)="onReglement()" class=" w3-card-4 w3-round w3-padding-16 w3-center w3-teal" id="reglement">
+      <p>CODE DE LA FLIB</p>
+    </div>
+  </div>
+  <div class="w3-container w3-half">
+    <div class="w3-card-4 w3-round w3-padding-16 w3-center w3-teal" id="flibustiers">
+      <p>MEET THE FLIB</p>
+    </div>
+  </div>
 </div>

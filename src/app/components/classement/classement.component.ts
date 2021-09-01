@@ -20,10 +20,6 @@ export class ClassementComponent implements OnInit {
     this.utilisateursSubscription = this.utilisateurService.utilisateursSubject.subscribe(
       (utilisateurs: User[]) => {
         this.utilisateurs = utilisateurs;
-
-        // Trier la liste des utilisateurs en fonction de leur nombre de points
-        // Celui qui a le plus de points est premier de la liste
-        this.utilisateurs.sort((a, b) => (a.points < b.points) ? 1 : -1)
       }
     );
     this.utilisateurService.emitUtilisateurs();

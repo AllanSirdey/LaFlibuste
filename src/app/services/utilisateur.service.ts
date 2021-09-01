@@ -32,6 +32,7 @@ export class UtilisateurService {
         data.forEach((utilisateur) => {
           this.utilisateurs.push(utilisateur.val());
         });
+        this.utilisateurs.sort((a, b) => (a.points < b.points) ? 1 : -1)
         this.emitUtilisateurs();
       }
       );
