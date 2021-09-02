@@ -11,6 +11,14 @@
       <label for="nom">Nom</label>
       <input type="text" id="nom" class="form-control" formControlName="nom" />
     </div>
+    <div class="form-group">
+      <label for="logo">Logo</label>
+      <input type="text" id="logo" class="form-control" formControlName="logo" />
+    </div>
+    <div class="form-group">
+      <label for="bio">Bio</label>
+      <textarea type="text" id="bio" class="form-control" formControlName="bio"></textarea>
+    </div>
     <button class="w3-button w3-section w3-teal w3-ripple" type="submit" [disabled]="editProfileForm.invalid">
       Modifier
     </button>

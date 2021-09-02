@@ -4,11 +4,11 @@
   <div *ngFor="let utilisateur of utilisateurs" class="w3-quarter w3-margin-bottom">
     <div class="w3-card-4">
       <header class="w3-container w3-light-grey">
-        <h3>{{ utilisateur.prenom }} {{ utilisateur.nom }}</h3>
+        <h3 style="white-space: nowrap; overflow:hidden;">{{ utilisateur.prenom }} {{ utilisateur.nom }}</h3>
       </header>
-      <div class="w3-container">
+      <div class="w3-container text">
         <img src="{{utilisateur.photo_profil}}" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
-        <p>CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities.</p><br>
+        <p>{{utilisateur.bio}}</p><br>
       </div>
       <button (click)="onProfilUtilisateur(utilisateur.uid)" class="w3-button w3-block w3-dark-grey">+ Infos</button>
     </div>

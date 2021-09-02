@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UtilisateurService } from 'src/app/services/utilisateur.service';
+import { UserService } from 'src/app/services/user.service';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
@@ -14,15 +14,15 @@ export class UtilisateursListComponent implements OnInit {
   utilisateurs: User[];
   utilisateursSubscription: Subscription;
 
-  constructor(private utilisateurService: UtilisateurService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.utilisateursSubscription = this.utilisateurService.utilisateursSubject.subscribe(
+    this.utilisateursSubscription = this.userService.utilisateursSubject.subscribe(
       (utilisateurs: User[]) => {
         this.utilisateurs = utilisateurs;
       }
     );
-    this.utilisateurService.emitUtilisateurs();
+    this.userService.emitUtilisateurs();
   }
 
   onProfilUtilisateur(uid: string) {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UtilisateurService } from 'src/app/services/utilisateur.service';
+import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -10,14 +10,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UtilisateurComponent implements OnInit {
 
-  user: User;
+  user = new User();
 
-  constructor(private route: ActivatedRoute, private utilisateurService: UtilisateurService,
+  constructor(private route: ActivatedRoute, private userService: UserService,
     private router: Router) { }
 
   ngOnInit(): void {
     const uid = this.route.snapshot.params['uid'];
-    this.utilisateurService.getUtilisateur(uid).then(
+    this.userService.getUtilisateur(uid).then(
       (user: User) => {
         this.user = user;
       }

@@ -5,7 +5,14 @@
       <img src="https://basket-infos.com/wp-content/uploads/2021/05/2019_PlayoffsBracket-promo-1280x720_0.jpg" alt="prochain event" style="width:100%;">
       <p><strong>Playoffs</strong></p>
       <p>Vendredi 19:00</p>
-      <p><button class="w3-button w3-block w3-theme-l4">Info</button></p>
+      <div class="w3-container">
+        <div class="w3-container w3-half w3-margin-bottom">
+          <button class="w3-button w3-block w3-theme-l4">Details</button>
+        </div>
+        <div class="w3-container w3-half w3-margin-bottom">
+          <button (click)="onEventsList()" class="w3-button w3-block w3-theme-l4">Voir tous</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

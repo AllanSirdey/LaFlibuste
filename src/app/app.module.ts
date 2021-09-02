@@ -15,16 +15,20 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { ClassementComponent } from './components/classement/classement.component';
 import { UtilisateurComponent } from './components/utilisateur/utilisateur.component';
-import { EvenementsComponent } from './components/evenements/evenements.component';
 import { LiensComponent } from './components/liens/liens.component';
+import { ReglementComponent } from './components/reglement/reglement.component';
+import { UtilisateursListComponent } from './components/utilisateurs-list/utilisateurs-list.component';
+import { EditComponent } from './components/profil/edit/edit.component';
+import { NextEventsComponent } from './components/events/next-events/next-events.component';
+import { EventsListComponent } from './components/events/events-list/events-list.component';
+import { EventDetailsComponent } from './components/events/event-details/event-details.component';
+import { NewEventComponent } from './components/events/new-event/new-event.component';
 
 // Services
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
-import { UtilisateurService } from './services/utilisateur.service';
-import { ReglementComponent } from './components/reglement/reglement.component';
-import { UtilisateursListComponent } from './components/utilisateurs-list/utilisateurs-list.component';
-import { EditComponent } from './components/profil/edit/edit.component';
+import { UserService } from './services/user.service';
+import { EventService } from './services/event.service';
 
 
 
@@ -62,6 +66,11 @@ const appRoutes: Routes = [
     canActivate: [AuthGuardService],
     component: UtilisateursListComponent
   },
+  {
+    path: 'events',
+    canActivate: [AuthGuardService],
+    component: EventsListComponent
+  },
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '' }
 ];
@@ -77,11 +86,14 @@ const appRoutes: Routes = [
     AccueilComponent,
     ClassementComponent,
     UtilisateurComponent,
-    EvenementsComponent,
     LiensComponent,
     ReglementComponent,
     UtilisateursListComponent,
-    EditComponent
+    EditComponent,
+    NextEventsComponent,
+    EventsListComponent,
+    EventDetailsComponent,
+    NewEventComponent
   ],
   imports: [
     BrowserModule,
@@ -90,7 +102,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthService, AuthGuardService, UtilisateurService],
+  providers: [AuthService, AuthGuardService, UserService, EventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

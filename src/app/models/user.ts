@@ -6,4 +6,5 @@ export class User {
   points: number;
   classement: number;
   photo_profil: string;
+  bio: string;
 }

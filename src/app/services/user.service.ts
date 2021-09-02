@@ -5,8 +5,12 @@ import DataSnapshot = firebase.database.DataSnapshot;
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 
+@Injectable({
+  providedIn: 'root'
+})
+
 @Injectable()
-export class UtilisateurService {
+export class UserService {
 
   utilisateurs: User[] = [];
   utilisateursSubject = new Subject<User[]>();
@@ -102,5 +106,4 @@ export class UtilisateurService {
       }
     );
   }
-
 }

@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase';
 import { User } from 'src/app/models/user';
-import { UtilisateurService } from 'src/app/services/utilisateur.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private utilisateurService: UtilisateurService) { }
+  constructor(private userService: UserService) { }
 
   /*
   * Service de création d'un nouvel Utilisateur
@@ -21,7 +21,7 @@ export class AuthService {
           (userCredential) => {
             // Enregistrement dans la base du nouvel utilisateur
             user.uid = userCredential.user.uid;
-            this.utilisateurService.enregistrerUtilisateur(userCredential.user.uid, user);
+            this.userService.enregistrerUtilisateur(userCredential.user.uid, user);
             resolve();
           },
           (error) => {
