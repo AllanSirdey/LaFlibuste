@@ -1,1 +1,29 @@
-<p>new-event works!</p>
+<h1>Ajouter un nouvel évènement</h1>
+
+<div class="w3-container w3-half w3-margin-top">
+
+  <form class="w3-container w3-card-4" [formGroup]="newEventForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="titre">Titre</label>
+      <input class="w3-input" type="text" id="titre" class="form-control" formControlName="titre" />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea type="text" id="description" class="form-control" formControlName="description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input class="w3-input" type="text" id="image" class="form-control" formControlName="image" />
+    </div>
+    <div class="form-group">
+      <label for="date_fin">Date de fin</label>
+      <input class="w3-input" type="date" id="date_fin" class="form-control" formControlName="date_fin" />
+    </div>
+    <button class="w3-button w3-section w3-teal w3-ripple" type="submit" [disabled]="newEventForm.invalid">
+      Ajouter
+    </button>
+  </form>
+
+  <p class="text-danger">{{ errorMessage }}</p>
+
+</div>

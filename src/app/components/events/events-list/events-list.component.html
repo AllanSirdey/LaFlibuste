@@ -1,1 +1,17 @@
-<p>events-list works!</p>
+<h1>Evenements <button (click)="onNewEvent()" class="w3-button w3-right w3-teal">Ajouter</button></h1>
+
+<div class="w3-row-padding">
+  <div *ngFor="let event of events; let i = index" class="w3-quarter w3-margin-bottom">
+    <div class="w3-card-4 w3-round w3-white w3-center">
+      <div class="w3-container ">
+        <p>{{event.titre}}</p>
+        <img src="{{event.image}}" alt="prochain event" style="width:100%;">
+        <p><strong>Playoffs</strong></p>
+        <p>{{event.date_fin}}</p>
+        <div class="w3-container w3-margin-bottom">
+          <button (click)="onViewEvent(i)" class="w3-button w3-block w3-dark-grey">Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

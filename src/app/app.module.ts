@@ -71,6 +71,16 @@ const appRoutes: Routes = [
     canActivate: [AuthGuardService],
     component: EventsListComponent
   },
+  {
+    path: 'events/view/:id',
+    canActivate: [AuthGuardService],
+    component: EventDetailsComponent
+  },
+  {
+    path: 'events/new',
+    canActivate: [AuthGuardService],
+    component: NewEventComponent
+  },
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', redirectTo: '' }
 ];

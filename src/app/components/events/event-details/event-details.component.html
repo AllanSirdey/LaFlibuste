@@ -1,1 +1,25 @@
-<p>event-details works!</p>
+<h1>{{event.titre}}</h1>
+
+<div class="w3-row">
+  <div class="w3-container w3-twothird">
+    <table class="w3-table w3-bordered w3-striped w3-border w3-card-4">
+      <tbody>
+        <tr>
+          <td>Description</td>
+          <td>{{event.description}}</td>
+        </tr>
+        <tr>
+          <td>Date de début</td>
+          <td>{{event.date_debut}}</td>
+        </tr>
+        <tr>
+          <td>Date de fin</td>
+          <td>{{event.date_fin}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="w3-container w3-third">
+    <img src="{{event.image}}" alt="event" style="width:100%;">
+  </div>
+</div>

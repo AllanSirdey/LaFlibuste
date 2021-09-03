@@ -65,10 +65,6 @@ export class EditComponent implements OnInit, OnDestroy {
     if (nom != "") this.user.nom = nom;
     if (bio != "") this.user.bio = bio;
     if (logo != "") this.user.photo_profil = logo;
-    //
-    // this.user.prenom = prenom;
-    // this.user.nom = nom;
-    // this.user.photo_profil = logo;
 
     this.userService.emitUtilisateurConnecte();
 
