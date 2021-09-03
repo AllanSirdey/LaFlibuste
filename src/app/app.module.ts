@@ -81,8 +81,8 @@ const appRoutes: Routes = [
     canActivate: [AuthGuardService],
     component: NewEventComponent
   },
-  { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: '**', redirectTo: '' }
+  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+  { path: '**', redirectTo: 'accueil' }
 ];
 
 @NgModule({
