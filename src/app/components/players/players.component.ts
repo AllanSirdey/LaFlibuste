@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import firebase from 'firebase';
 
+
 @Component({
   selector: 'app-players',
   templateUrl: './players.component.html',
@@ -16,8 +17,6 @@ export class PlayersComponent implements OnInit {
   private playersUrl = 'http://data.nba.net/data/10s/prod/v1/2020/players.json';
 
   ngOnInit(): void {
-
-
     this._httpClient.get<PlayerResponse>(this.playersUrl).subscribe(players => {
       players.league.standard.forEach((player) => {
         const p = <Player>({

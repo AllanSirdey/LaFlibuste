@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 })
 export class ProfilComponent implements OnInit, OnDestroy {
 
-  uid: string;
   user = new User();
   utilisateursConnecteSubscription: Subscription;
 
@@ -28,19 +27,8 @@ export class ProfilComponent implements OnInit, OnDestroy {
     this.userService.emitUtilisateurConnecte();
   }
 
-  ajouterPoints(points: number) {
-    this.user.points += points;
-    this.userService.enregistrerUtilisateur(this.uid, this.user);
-
-  }
-
-  supprimerPoints(points: number) {
-    this.user.points -= points;
-    this.userService.enregistrerUtilisateur(this.uid, this.user);
-  }
-
-  onEditProfile(uid: string) {
-    this.router.navigate(['/profil', 'edit', uid]);
+  onEditProfile() {
+    this.router.navigate(['/profil', 'edit', this.user.uid]);
   }
 
   ngOnDestroy() {

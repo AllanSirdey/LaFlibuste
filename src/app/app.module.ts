@@ -23,12 +23,15 @@ import { NextEventsComponent } from './components/events/next-events/next-events
 import { EventsListComponent } from './components/events/events-list/events-list.component';
 import { EventDetailsComponent } from './components/events/event-details/event-details.component';
 import { NewEventComponent } from './components/events/new-event/new-event.component';
+import { PronosticsComponent } from './components/pronostics/pronostics.component';
 
 // Services
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { UserService } from './services/user.service';
 import { EventService } from './services/event.service';
+import { RegularSeasonEditComponent } from './components/pronostics/regular-season-edit/regular-season-edit.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -81,6 +84,16 @@ const appRoutes: Routes = [
     canActivate: [AuthGuardService],
     component: NewEventComponent
   },
+  {
+    path: 'pronostics',
+    canActivate: [AuthGuardService],
+    component: PronosticsComponent
+  },
+  {
+    path: 'pronostics/regularSeason/edit',
+    canActivate: [AuthGuardService],
+    component: RegularSeasonEditComponent
+  },
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
   { path: '**', redirectTo: 'accueil' }
 ];
@@ -103,14 +116,17 @@ const appRoutes: Routes = [
     NextEventsComponent,
     EventsListComponent,
     EventDetailsComponent,
-    NewEventComponent
+    NewEventComponent,
+    PronosticsComponent,
+    RegularSeasonEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule
   ],
   providers: [AuthService, AuthGuardService, UserService, EventService],
   bootstrap: [AppComponent]
