@@ -8,6 +8,10 @@
 
 5 - ng serve (lancer l'application)
 
+6 - ng build --prod (générer le dossier dist)
+
+7 - firebase deploy
+
 Erreurs rencontrées:
 - Derrière un proxy
   - npm config set strict-ssl false

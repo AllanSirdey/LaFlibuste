@@ -6,63 +6,67 @@
         <h2>Conférence Ouest</h2>
       </div>
 
-      <form class="w3-container">
+      <form class="w3-container" [formGroup]="formTeamEast" (ngSubmit)="onSubmit()">
 
         <label for="team1">Team #1:</label>
-        <select name="team1" id="teamEast" class="w3-select">
+        <select name="team1" formControlName="team1" class="w3-select">
           <option *ngFor="let team of teamsEast" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
 
         <label for="team2">Team #2:</label>
-        <select name="team2" id="teamEast" class="w3-select">
+        <select name="team2" formControlName="team2" class="w3-select">
             <option *ngFor="let team of teamsEast" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
 
         <label for="team3">Team #3:</label>
-        <select name="team3" id="teamEast" class="w3-select">
+        <select name="team3" class="w3-select">
             <option *ngFor="let team of teamsEast" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
 
         <label for="team4">Team #4:</label>
-        <select name="team4" id="teamEast" class="w3-select">
+        <select name="team4" class="w3-select">
             <option *ngFor="let team of teamsEast" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
 
         <label for="team5">Team #5:</label>
-        <select name="team5" id="teamEast" class="w3-select">
+        <select name="team5" class="w3-select">
             <option *ngFor="let team of teamsEast" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
 
         <label for="team6">Team #6:</label>
-        <select name="team6" id="teamEast" class="w3-select">
+        <select name="team6" class="w3-select">
             <option *ngFor="let team of teamsEast" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
 
         <label for="team7">Team #7:</label>
-        <select name="team7" id="teamEast" class="w3-select">
+        <select name="team7" class="w3-select">
             <option *ngFor="let team of teamsEast" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
 
         <label for="team8">Team #8:</label>
-        <select name="team8" id="teamEast" class="w3-select">
+        <select name="team8" class="w3-select">
             <option *ngFor="let team of teamsEast" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
+
+        <button class="w3-button w3-section w3-teal w3-ripple" type="submit" [disabled]="formTeamEast.invalid">
+          Valider
+        </button>
 
       </form>
 
@@ -79,56 +83,56 @@
       <form class="w3-container">
 
         <label for="team1">Team #1:</label>
-        <select name="team1" id="teamEast" class="w3-select">
+        <select name="team1" class="w3-select">
           <option *ngFor="let team of teamWest" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
 
         <label for="team2">Team #2:</label>
-        <select name="team2" id="teamEast" class="w3-select">
+        <select name="team2" class="w3-select">
             <option *ngFor="let team of teamWest" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
 
         <label for="team3">Team #3:</label>
-        <select name="team3" id="teamEast" class="w3-select">
+        <select name="team3" class="w3-select">
             <option *ngFor="let team of teamWest" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
 
         <label for="team4">Team #4:</label>
-        <select name="team4" id="teamEast" class="w3-select">
+        <select name="team4" class="w3-select">
             <option *ngFor="let team of teamWest" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
 
         <label for="team5">Team #5:</label>
-        <select name="team5" id="teamEast" class="w3-select">
+        <select name="team5" class="w3-select">
             <option *ngFor="let team of teamWest" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
 
         <label for="team6">Team #6:</label>
-        <select name="team6" id="teamEast" class="w3-select">
+        <select name="team6" class="w3-select">
             <option *ngFor="let team of teamWest" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
 
         <label for="team7">Team #7:</label>
-        <select name="team7" id="teamEast" class="w3-select">
+        <select name="team7" class="w3-select">
             <option *ngFor="let team of teamWest" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
         <br><br>
 
         <label for="team8">Team #8:</label>
-        <select name="team8" id="teamEast" class="w3-select">
+        <select name="team8" class="w3-select">
             <option *ngFor="let team of teamWest" [value]="team.fullName">{{team.fullName}}</option>
         </select>
 
