@@ -26,14 +26,13 @@ export class PronosticsComponent implements OnInit, OnDestroy {
       }
     );
     this.userService.emitUtilisateurConnecte();
-    this.generateFakeData();
   }
 
   onEditRegularSeason() {
     this.router.navigate(['/pronostics', 'regularSeason', 'edit']);
   }
 
-  generateFakeData() {
+  /*generateFakeData() {
 
     const team1 = <Team>({
       teamId: 1,
@@ -56,7 +55,7 @@ export class PronosticsComponent implements OnInit, OnDestroy {
 
     this.user.pronostic = pronos;
     this.userService.enregistrerUtilisateur(this.user.uid, this.user);
-  }
+  }*/
 
   ngOnDestroy() {
     this.utilisateursConnecteSubscription.unsubscribe();
