@@ -3,7 +3,7 @@
   <div class="w3-bar w3-theme-d2 w3-left-align">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
     <a routerLink="accueil" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large"><i class="fa fa-home w3-margin-right"></i>La Flibuste</a>
-    <a routerLink="pronostics" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large" *ngIf="isAuth"><i class="fa fa-home w3-margin-right"></i>Mes pronos</a>
+    <a routerLink="pronostics" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large" *ngIf="isAuth">Saison régulière</a>
     <a (click)="onSignOut()" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-right" *ngIf="isAuth">Déconnexion</a>
     <a routerLink="profil" routerLinkActive="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white w3-right" *ngIf="isAuth"><i class="fa fa-user"></i> Mon profil</a>
     <a routerLink="auth/signup" routerLinkActive="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white  w3-right" *ngIf="!isAuth">Créer un compte</a>
@@ -14,11 +14,11 @@
 <!-- Navbar on small screens -->
 <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
   <a routerLink="accueil" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large">Accueil</a>
+  <a routerLink="pronostics" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large">Saison régulière</a>
   <a routerLink="profil" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large" *ngIf="isAuth">Mon profil</a>
   <a routerLink="auth/signin" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large" *ngIf="!isAuth">Connexion</a>
   <a routerLink="auth/signup" routerLinkActive="active" class="w3-bar-item w3-button w3-padding-large" *ngIf="!isAuth">Créer un compte</a>
   <a (click)="onSignOut()" class="w3-bar-item w3-button w3-padding-large" *ngIf="isAuth">Déconnexion</a>
-  <app-liens></app-liens>
 </div>
 
 <!-- Sidebar/menu -->

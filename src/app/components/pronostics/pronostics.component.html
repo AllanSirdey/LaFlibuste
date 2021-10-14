@@ -2,18 +2,60 @@
 
 <h2>Saison régulière</h2>
 
-<h3>Conférence Ouest</h3>
+<div class="w3-row">
 
-<h3>Conférence Est</h3>
+  <div class="w3-half w3-container">
+    <br>
+    <div class="w3-card-4 w3-container">
 
-<table *ngIf="user.pronostic" class="w3-table w3-bordered w3-striped w3-border w3-card-4">
-  <tbody>
-    <tr *ngFor="let team of user.pronostic.classement_SR_east; let i = index">
-      <td>{{i+1}}</td>
-      <td>{{team}}</td>
-    </tr>
-  </tbody>
-</table>
+      <br>
+
+      <div class="w3-container west-conference">
+        <h2>Conférence West</h2>
+      </div>
+
+      <br><br>
+
+      <table *ngIf="user.pronostic" class="w3-table w3-bordered w3-striped w3-border">
+        <tbody>
+          <tr *ngFor="let team of user.pronostic.classement_SR_west; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{team}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+    </div>
+  </div>
+
+  <div class="w3-half w3-container">
+    <br>
+    <div class="w3-card-4  w3-container">
+
+      <br>
+
+      <div class="w3-container east-conference">
+        <h2>Conférence East</h2>
+      </div>
+
+      <br><br>
+
+      <table *ngIf="user.pronostic" class="w3-table w3-bordered w3-striped w3-border">
+        <tbody>
+          <tr *ngFor="let team of user.pronostic.classement_SR_east; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{team}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+    </div>
+  </div>
+</div>
 
 <hr>
 
