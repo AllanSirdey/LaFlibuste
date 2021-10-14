@@ -24,13 +24,15 @@ import { EventsListComponent } from './components/events/events-list/events-list
 import { EventDetailsComponent } from './components/events/event-details/event-details.component';
 import { NewEventComponent } from './components/events/new-event/new-event.component';
 import { PronosticsComponent } from './components/pronostics/pronostics.component';
+import { RegularSeasonEditComponent } from './components/pronostics/regular-season-edit/regular-season-edit.component';
+import { RewardsViewComponent } from './components/pronostics/rewards/rewards-view/rewards-view.component';
+import { RewardsEditComponent } from './components/pronostics/rewards/rewards-edit/rewards-edit.component';
 
 // Services
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { UserService } from './services/user.service';
 import { EventService } from './services/event.service';
-import { RegularSeasonEditComponent } from './components/pronostics/regular-season-edit/regular-season-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -94,6 +96,16 @@ const appRoutes: Routes = [
     canActivate: [AuthGuardService],
     component: RegularSeasonEditComponent
   },
+  {
+    path: 'rewards',
+    canActivate: [AuthGuardService],
+    component: RewardsViewComponent
+  },
+  {
+    path: 'rewards/edit',
+    canActivate: [AuthGuardService],
+    component: RewardsEditComponent
+  },
   { path: '', redirectTo: 'accueil', pathMatch: 'full' },
   { path: '**', redirectTo: 'accueil' }
 ];
@@ -118,7 +130,9 @@ const appRoutes: Routes = [
     EventDetailsComponent,
     NewEventComponent,
     PronosticsComponent,
-    RegularSeasonEditComponent
+    RegularSeasonEditComponent,
+    RewardsViewComponent,
+    RewardsEditComponent
   ],
   imports: [
     BrowserModule,

@@ -32,31 +32,6 @@ export class PronosticsComponent implements OnInit, OnDestroy {
     this.router.navigate(['/pronostics', 'regularSeason', 'edit']);
   }
 
-  /*generateFakeData() {
-
-    const team1 = <Team>({
-      teamId: 1,
-      fullName: 'Lakers'
-    });
-
-    const team2 = <Team>({
-      teamId: 2,
-      fullName: 'Warriors'
-    });
-
-    const teamsEast: Team[] = [];
-
-    teamsEast.push(team1);
-    teamsEast.push(team2);
-
-    const pronos = <Pronostic>({
-      classement_SR_east: teamsEast
-    });
-
-    this.user.pronostic = pronos;
-    this.userService.enregistrerUtilisateur(this.user.uid, this.user);
-  }*/
-
   ngOnDestroy() {
     this.utilisateursConnecteSubscription.unsubscribe();
   }
