@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase';
 import { User } from 'src/app/models/user';
+import { Rewards } from 'src/app/models/rewards';
 import DataSnapshot = firebase.database.DataSnapshot;
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
@@ -105,5 +106,15 @@ export class UserService {
         );
       }
     );
+  }
+
+
+
+  /*
+  * Enregistrer un utilisateur dans la base de données firebase
+  */
+  updateRewards(uid: string, rewards: Rewards) {
+    firebase.database().ref('users').child(uid).child("pronostic").child("rewards").set(rewards);
+    this.emitUtilisateurConnecte();
   }
 }

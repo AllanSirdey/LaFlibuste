@@ -1,1 +1,19 @@
-<p>rewards-edit works!</p>
+<h1>Récompenses</h1>
+
+<div class="w3-containe w3-margin-top">
+
+  <form class="w3-container w3-card-4" [formGroup]="editRewardsForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="mvpSaison">MVP de la saison</label>
+      <select id="mvpSaison" formControlName="mvpSaison" class="w3-select">
+          <option *ngFor="let player of players;" [value]="player.id">{{ player.nom }}, {{ player.prenom }}</option>
+        </select>
+    </div>
+
+    <button class="w3-button w3-section w3-teal w3-ripple" type="submit" [disabled]="editRewardsForm.invalid">
+      Modifier
+    </button>
+
+  </form>
+
+</div>
