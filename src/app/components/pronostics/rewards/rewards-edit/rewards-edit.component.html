@@ -10,6 +10,21 @@
         </select>
     </div>
 
+    <div class="form-group">
+      <label for="mvpJoker">MVP (Joker medical)</label>
+      <select id="mvpJoker" formControlName="mvpJoker" class="w3-select">
+            <option *ngFor="let player of players;" [value]="player.id">{{ player.nom }}, {{ player.prenom }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="roy">Rookie Of The Year</label>
+      <select id="roy" formControlName="roy" class="w3-select">
+            <option *ngFor="let player of players;" [value]="player.id">{{ player.nom }}, {{ player.prenom }}</option>
+          </select>
+    </div>
+
+
     <button class="w3-button w3-section w3-teal w3-ripple" type="submit" [disabled]="editRewardsForm.invalid">
       Modifier
     </button>

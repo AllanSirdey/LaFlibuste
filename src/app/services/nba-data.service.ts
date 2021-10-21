@@ -63,6 +63,20 @@ export class NbaDataService {
       });
     });
   }
+
+  /*
+  * Récupérer un utilisateur depuis la liste
+  */
+  getPlayerFromList(id: string) {
+    const playerIndex = this.joueurs.findIndex(
+      (joueur) => {
+        if (joueur.id === id) {
+          return true;
+        }
+      }
+    );
+    return this.joueurs[playerIndex];
+  }
 }
 
 export interface TeamResponse {

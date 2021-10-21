@@ -4,15 +4,15 @@
   <tbody>
     <tr>
       <td>MVP de la saison</td>
-      <td>{{user.pronostic.rewards.mvpSaison.prenom}} {{user.pronostic.rewards.mvpSaison.nom}}</td>
+      <td *ngIf="isDefined('mvpSaison')">{{user.pronostic.rewards.mvpSaison.prenom}} {{user.pronostic.rewards.mvpSaison.nom}}</td>
     </tr>
     <tr>
       <td>MVP (Joker medical)</td>
-      <td></td>
+      <td *ngIf="isDefined('mvpJoker')">{{user.pronostic.rewards.mvpJoker.prenom}} {{user.pronostic.rewards.mvpJoker.nom}}</td>
     </tr>
     <tr>
       <td>Rookie Of The Year</td>
-      <td></td>
+      <td *ngIf="isDefined('roy')">{{user.pronostic.rewards.roy.prenom}} {{user.pronostic.rewards.roy.nom}}</td>
     </tr>
     <tr>
       <td>ROY (Joker médical)</td>

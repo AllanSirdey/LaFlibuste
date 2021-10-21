@@ -32,6 +32,11 @@ export class RewardsViewComponent implements OnInit, OnDestroy {
     this.userService.emitUtilisateurConnecte();
   }
 
+  isDefined(property: string) {
+    return this.user.pronostic && this.user.pronostic.rewards && this.user.pronostic.rewards.hasOwnProperty(property) ? true : false;
+  }
+
+
   onEditRewards() {
     this.router.navigate(['/rewards', 'edit']);
   }

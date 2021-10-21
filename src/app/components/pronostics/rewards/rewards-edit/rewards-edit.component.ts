@@ -35,10 +35,16 @@ export class RewardsEditComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    // initialisation des formulaires
+    this.initForm();
+
     // on stock la subscription dans uns variable pour éviter les bugs
     this.utilisateursConnecteSubscription = this.userService.utilisateurConnecteSubject.subscribe(
       (utilisateurConnecte: User) => {
         this.user = utilisateurConnecte;
+        if (this.user.pronostic.rewards != null) {
+          this.updateForm();
+        }
       }
     );
     this.userService.emitUtilisateurConnecte();
@@ -49,9 +55,6 @@ export class RewardsEditComponent implements OnInit, OnDestroy {
       }
     );
     this.nbaDataService.emitPlayers();
-
-    // initialisation des formulaires
-    this.initForm();
   }
 
   initForm() {
@@ -80,15 +83,21 @@ export class RewardsEditComponent implements OnInit, OnDestroy {
     });
   }
 
-  onSubmit() {
-    // id du joueur
-    const mvpSaison = this.editRewardsForm.get('mvpSaison').value;
+  updateForm() {
+    this.editRewardsForm.get("mvpSaison").patchValue(this.user.pronostic.rewards.mvpSaison.id);
+    this.editRewardsForm.get("mvpJoker").patchValue(this.user.pronostic.rewards.mvpJoker.id);
+    this.editRewardsForm.get("roy").patchValue(this.user.pronostic.rewards.roy.id);
+  }
 
-    // on récupère l'objet Player complet dans la liste par son ID
-    const player = this.players.filter(value => value.id === mvpSaison)[0];
+  onSubmit() {
+    const mvpSaison = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('mvpSaison').value);
+    const mvpJoker = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('mvpJoker').value);
+    const roy = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('roy').value);
 
     const rewards = <Rewards>({
-      mvpSaison: player
+      mvpSaison: mvpSaison || null,
+      mvpJoker: mvpJoker || null,
+      roy: roy || null
     });
 
     // update rewards du joueur
