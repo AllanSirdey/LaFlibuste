@@ -245,7 +245,7 @@ export class RegularSeasonEditComponent implements OnInit {
 export interface TeamResponse {
   league: {
     standard: Array<{
-      teamId: number;
+      teamId: string;
       fullName: string;
       isNBAFranchise: boolean;
       confName: string;

@@ -1,4 +1,5 @@
 import { Player } from 'src/app/models/player';
+import { Coach } from 'src/app/models/coach';
 import { Team } from 'src/app/models/team';
 
 export class Rewards {
@@ -10,8 +11,8 @@ export class Rewards {
   meilleurMarqueur: Player;
   meilleurPasseur: Player;
   meilleurRebondeur: Player;
-  coachAnnee: string;
-  equipeChampionne: string;
+  coachAnnee: Coach;
+  equipeChampionne: Team;
   meilleurContreur: Player;
   meilleurIntercepteur: Player;
   meilleurSixiemeHomme: Player;

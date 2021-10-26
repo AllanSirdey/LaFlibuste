@@ -16,75 +16,75 @@
     </tr>
     <tr>
       <td>ROY (Joker médical)</td>
-      <td></td>
+      <td *ngIf="isDefined('royJoker')">{{user.pronostic.rewards.royJoker.prenom}} {{user.pronostic.rewards.royJoker.nom}}</td>
     </tr>
     <tr>
       <td>Défenseur de l'année</td>
-      <td></td>
+      <td *ngIf="isDefined('defenseurAnnee')">{{user.pronostic.rewards.defenseurAnnee.prenom}} {{user.pronostic.rewards.defenseurAnnee.nom}}</td>
     </tr>
     <tr>
       <td>Meilleur marqueur NBA</td>
-      <td></td>
+      <td *ngIf="isDefined('meilleurMarqueur')">{{user.pronostic.rewards.meilleurMarqueur.prenom}} {{user.pronostic.rewards.meilleurMarqueur.nom}}</td>
     </tr>
     <tr>
       <td>Meilleur passeur NBA</td>
-      <td></td>
+      <td *ngIf="isDefined('meilleurPasseur')">{{user.pronostic.rewards.meilleurPasseur.prenom}} {{user.pronostic.rewards.meilleurPasseur.nom}}</td>
     </tr>
     <tr>
       <td>Meilleur rebondeur NBA</td>
-      <td></td>
+      <td *ngIf="isDefined('meilleurRebondeur')">{{user.pronostic.rewards.meilleurRebondeur.prenom}} {{user.pronostic.rewards.meilleurRebondeur.nom}}</td>
     </tr>
     <tr>
       <td>Coach de l'année</td>
-      <td></td>
+      <td *ngIf="isDefined('coachAnnee')">{{user.pronostic.rewards.coachAnnee.prenom}} {{user.pronostic.rewards.coachAnnee.nom}}</td>
     </tr>
     <tr>
       <td>Equipe championne de la NBA</td>
-      <td></td>
+      <td *ngIf="isDefined('equipeChampionne')">{{user.pronostic.rewards.equipeChampionne.fullName}}</td>
     </tr>
     <tr>
       <td>Meilleur contreur de l'année</td>
-      <td></td>
+      <td *ngIf="isDefined('meilleurContreur')">{{user.pronostic.rewards.meilleurContreur.prenom}} {{user.pronostic.rewards.meilleurContreur.nom}}</td>
     </tr>
     <tr>
       <td>Meilleur intercepteur de l'année</td>
-      <td></td>
+      <td *ngIf="isDefined('meilleurIntercepteur')">{{user.pronostic.rewards.meilleurIntercepteur.prenom}} {{user.pronostic.rewards.meilleurIntercepteur.nom}}</td>
     </tr>
     <tr>
       <td>Meilleur sixième homme de l'année</td>
-      <td></td>
+      <td *ngIf="isDefined('meilleurSixiemeHomme')">{{user.pronostic.rewards.meilleurSixiemeHomme.prenom}} {{user.pronostic.rewards.meilleurSixiemeHomme.nom}}</td>
     </tr>
     <tr>
       <td>Meilleure progression de l'année</td>
-      <td></td>
+      <td *ngIf="isDefined('meilleurProgression')">{{user.pronostic.rewards.meilleurProgression.prenom}} {{user.pronostic.rewards.meilleurProgression.nom}}</td>
     </tr>
     <tr>
       <td>Meilleure attaque de la ligue</td>
-      <td></td>
+      <td *ngIf="isDefined('meilleurAttaque')">{{user.pronostic.rewards.meilleurAttaque.fullName}}</td>
     </tr>
     <tr>
       <td>Meilleure défense de la ligue</td>
-      <td></td>
+      <td *ngIf="isDefined('meilleurDefense')">{{user.pronostic.rewards.meilleurDefense.fullName}}</td>
     </tr>
     <tr>
       <td>Meilleur Bilan de la saison régulière</td>
-      <td></td>
+      <td *ngIf="isDefined('meilleurBilan')">{{user.pronostic.rewards.meilleurBilan.fullName}}</td>
     </tr>
     <tr>
       <td>Pire Bilan de la saison régulière</td>
-      <td></td>
+      <td *ngIf="isDefined('pireBilan')">{{user.pronostic.rewards.pireBilan.fullName}}</td>
     </tr>
     <tr>
       <td>Plus gros score offensif d'un joueur (nombre de points exact)</td>
-      <td></td>
+      <td *ngIf="isDefined('plusGrosScoreJoueur')">{{user.pronostic.rewards.plusGrosScoreJoueur}}</td>
     </tr>
     <tr>
       <td>Joueur qui marque le plus de point en 1 match</td>
-      <td></td>
+      <td *ngIf="isDefined('joueurQuiMarqueLePlus')">{{user.pronostic.rewards.joueurQuiMarqueLePlus.prenom}} {{user.pronostic.rewards.joueurQuiMarqueLePlus.nom}}</td>
     </tr>
     <tr>
       <td>Joueur avec le plus de fautes techniques</td>
-      <td></td>
+      <td *ngIf="isDefined('joueurFautesTechniques')">{{user.pronostic.rewards.joueurFautesTechniques.prenom}} {{user.pronostic.rewards.joueurFautesTechniques.nom}}</td>
     </tr>
   </tbody>
 </table>

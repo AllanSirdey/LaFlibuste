@@ -24,6 +24,129 @@
           </select>
     </div>
 
+    <div class="form-group">
+      <label for="royJoker">ROY (Joker médical)</label>
+      <select id="royJoker" formControlName="royJoker" class="w3-select">
+            <option *ngFor="let player of players;" [value]="player.id">{{ player.nom }}, {{ player.prenom }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="defenseurAnnee">Défenseur de l'année</label>
+      <select id="defenseurAnnee" formControlName="defenseurAnnee" class="w3-select">
+            <option *ngFor="let player of players;" [value]="player.id">{{ player.nom }}, {{ player.prenom }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="meilleurMarqueur">Meilleur marqueur NBA</label>
+      <select id="meilleurMarqueur" formControlName="meilleurMarqueur" class="w3-select">
+            <option *ngFor="let player of players;" [value]="player.id">{{ player.nom }}, {{ player.prenom }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="meilleurPasseur">Meilleur passeur NBA</label>
+      <select id="meilleurPasseur" formControlName="meilleurPasseur" class="w3-select">
+            <option *ngFor="let player of players;" [value]="player.id">{{ player.nom }}, {{ player.prenom }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="meilleurRebondeur">Meilleur rebondeur NBA</label>
+      <select id="meilleurRebondeur" formControlName="meilleurRebondeur" class="w3-select">
+            <option *ngFor="let player of players;" [value]="player.id">{{ player.nom }}, {{ player.prenom }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="coachAnnee">Coach de l'année</label>
+      <select id="coachAnnee" formControlName="coachAnnee" class="w3-select">
+            <option *ngFor="let coach of coachs;" [value]="coach.id">{{ coach.nom }}, {{ coach.prenom }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="equipeChampionne">Equipe championne de la NBA</label>
+      <select id="equipeChampionne" formControlName="equipeChampionne" class="w3-select">
+            <option *ngFor="let team of teams;" [value]="team.teamId">{{ team.fullName }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="meilleurContreur">Meilleur contreur de l'année</label>
+      <select id="meilleurContreur" formControlName="meilleurContreur" class="w3-select">
+            <option *ngFor="let player of players;" [value]="player.id">{{ player.nom }}, {{ player.prenom }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="meilleurIntercepteur">Meilleur intercepteur de l'année</label>
+      <select id="meilleurIntercepteur" formControlName="meilleurIntercepteur" class="w3-select">
+            <option *ngFor="let player of players;" [value]="player.id">{{ player.nom }}, {{ player.prenom }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="meilleurSixiemeHomme">Meilleur sixième homme de l'année</label>
+      <select id="meilleurSixiemeHomme" formControlName="meilleurSixiemeHomme" class="w3-select">
+            <option *ngFor="let player of players;" [value]="player.id">{{ player.nom }}, {{ player.prenom }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="meilleurProgression">Meilleure progression de l'année</label>
+      <select id="meilleurProgression" formControlName="meilleurProgression" class="w3-select">
+            <option *ngFor="let player of players;" [value]="player.id">{{ player.nom }}, {{ player.prenom }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="meilleurAttaque">Meilleure attaque de la ligue</label>
+      <select id="meilleurAttaque" formControlName="meilleurAttaque" class="w3-select">
+            <option *ngFor="let team of teams;" [value]="team.teamId">{{ team.fullName }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="meilleurDefense">Meilleure défense de la ligue</label>
+      <select id="meilleurDefense" formControlName="meilleurDefense" class="w3-select">
+            <option *ngFor="let team of teams;" [value]="team.teamId">{{ team.fullName }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="meilleurBilan">Meilleur Bilan de la saison régulière</label>
+      <select id="meilleurBilan" formControlName="meilleurBilan" class="w3-select">
+            <option *ngFor="let team of teams;" [value]="team.teamId">{{ team.fullName }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="pireBilan">Pire Bilan de la saison régulière</label>
+      <select id="pireBilan" formControlName="pireBilan" class="w3-select">
+            <option *ngFor="let team of teams;" [value]="team.teamId">{{ team.fullName }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="plusGrosScoreJoueur">Plus gros score offensif d'un joueur (nombre de points exact)</label>
+      <input type="text" id="plusGrosScoreJoueur" class="form-control" formControlName="plusGrosScoreJoueur" />
+    </div>
+
+    <div class="form-group">
+      <label for="joueurQuiMarqueLePlus">Joueur qui marque le plus de point en 1 match</label>
+      <select id="joueurQuiMarqueLePlus" formControlName="joueurQuiMarqueLePlus" class="w3-select">
+            <option *ngFor="let player of players;" [value]="player.id">{{ player.nom }}, {{ player.prenom }}</option>
+          </select>
+    </div>
+
+    <div class="form-group">
+      <label for="joueurFautesTechniques">Joueur avec le plus de fautes techniques</label>
+      <select id="joueurFautesTechniques" formControlName="joueurFautesTechniques" class="w3-select">
+            <option *ngFor="let player of players;" [value]="player.id">{{ player.nom }}, {{ player.prenom }}</option>
+          </select>
+    </div>
 
     <button class="w3-button w3-section w3-teal w3-ripple" type="submit" [disabled]="editRewardsForm.invalid">
       Modifier

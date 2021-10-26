@@ -1,5 +1,5 @@
 export class Team {
-  teamId: number;
+  teamId: string;
   fullName: string;
   confName: string;
 }

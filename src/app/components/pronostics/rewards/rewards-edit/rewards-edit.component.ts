@@ -7,6 +7,7 @@ import { NbaDataService } from 'src/app/services/nba-data.service';
 import { User } from 'src/app/models/user';
 import { Team } from 'src/app/models/team';
 import { Player } from 'src/app/models/player';
+import { Coach } from 'src/app/models/coach';
 import { Rewards } from 'src/app/models/rewards';
 
 @Component({
@@ -23,9 +24,13 @@ export class RewardsEditComponent implements OnInit, OnDestroy {
   utilisateursConnecteSubscription: Subscription;
 
   teams: Team[] = [];
+  teamsSubscription: Subscription;
 
   players: Player[] = [];
   playersSubscription: Subscription;
+
+  coachs: Coach[] = [];
+  coachsSubscription: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,12 +54,29 @@ export class RewardsEditComponent implements OnInit, OnDestroy {
     );
     this.userService.emitUtilisateurConnecte();
 
+    // Joueurs
     this.playersSubscription = this.nbaDataService.joueursSubject.subscribe(
       (players: Player[]) => {
         this.players = players;
       }
     );
     this.nbaDataService.emitPlayers();
+
+    // Coachs
+    this.coachsSubscription = this.nbaDataService.coachsSubject.subscribe(
+      (coachs: Coach[]) => {
+        this.coachs = coachs;
+      }
+    );
+    this.nbaDataService.emitCoachs();
+
+    // Equipes
+    this.teamsSubscription = this.nbaDataService.teamsSubject.subscribe(
+      (teams: Team[]) => {
+        this.teams = teams;
+      }
+    );
+    this.nbaDataService.emitTeams();
   }
 
   initForm() {
@@ -72,7 +94,7 @@ export class RewardsEditComponent implements OnInit, OnDestroy {
       meilleurContreur: [''],
       meilleurIntercepteur: [''],
       meilleurSixiemeHomme: [''],
-      meilleurProression: [''],
+      meilleurProgression: [''],
       meilleurAttaque: [''],
       meilleurDefense: [''],
       meilleurBilan: [''],
@@ -87,17 +109,71 @@ export class RewardsEditComponent implements OnInit, OnDestroy {
     this.editRewardsForm.get("mvpSaison").patchValue(this.user.pronostic.rewards.mvpSaison.id);
     this.editRewardsForm.get("mvpJoker").patchValue(this.user.pronostic.rewards.mvpJoker.id);
     this.editRewardsForm.get("roy").patchValue(this.user.pronostic.rewards.roy.id);
+    this.editRewardsForm.get("royJoker").patchValue(this.user.pronostic.rewards.royJoker.id);
+    this.editRewardsForm.get("defenseurAnnee").patchValue(this.user.pronostic.rewards.defenseurAnnee.id);
+    this.editRewardsForm.get("meilleurMarqueur").patchValue(this.user.pronostic.rewards.meilleurMarqueur.id);
+    this.editRewardsForm.get("meilleurPasseur").patchValue(this.user.pronostic.rewards.meilleurPasseur.id);
+    this.editRewardsForm.get("meilleurRebondeur").patchValue(this.user.pronostic.rewards.meilleurRebondeur.id);
+    this.editRewardsForm.get("coachAnnee").patchValue(this.user.pronostic.rewards.coachAnnee.id);
+    this.editRewardsForm.get("equipeChampionne").patchValue(this.user.pronostic.rewards.equipeChampionne.teamId);
+    this.editRewardsForm.get("meilleurContreur").patchValue(this.user.pronostic.rewards.meilleurContreur.id);
+    this.editRewardsForm.get("meilleurIntercepteur").patchValue(this.user.pronostic.rewards.meilleurIntercepteur.id);
+    this.editRewardsForm.get("meilleurSixiemeHomme").patchValue(this.user.pronostic.rewards.meilleurSixiemeHomme.id);
+    this.editRewardsForm.get("meilleurProgression").patchValue(this.user.pronostic.rewards.meilleurProgression.id);
+    this.editRewardsForm.get("meilleurAttaque").patchValue(this.user.pronostic.rewards.meilleurAttaque.teamId);
+    this.editRewardsForm.get("meilleurDefense").patchValue(this.user.pronostic.rewards.meilleurDefense.teamId);
+    this.editRewardsForm.get("meilleurBilan").patchValue(this.user.pronostic.rewards.meilleurBilan.teamId);
+    this.editRewardsForm.get("pireBilan").patchValue(this.user.pronostic.rewards.pireBilan.teamId);
+    this.editRewardsForm.get("plusGrosScoreJoueur").patchValue(this.user.pronostic.rewards.plusGrosScoreJoueur);
+    this.editRewardsForm.get("joueurQuiMarqueLePlus").patchValue(this.user.pronostic.rewards.joueurQuiMarqueLePlus.id);
+    this.editRewardsForm.get("joueurFautesTechniques").patchValue(this.user.pronostic.rewards.joueurFautesTechniques.id);
   }
 
   onSubmit() {
     const mvpSaison = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('mvpSaison').value);
     const mvpJoker = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('mvpJoker').value);
     const roy = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('roy').value);
+    const royJoker = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('royJoker').value);
+    const defenseurAnnee = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('defenseurAnnee').value);
+    const meilleurMarqueur = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('meilleurMarqueur').value);
+    const meilleurPasseur = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('meilleurPasseur').value);
+    const meilleurRebondeur = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('meilleurRebondeur').value);
+    const coachAnnee = this.nbaDataService.getCoachFromList(this.editRewardsForm.get('coachAnnee').value);
+    const equipeChampionne = this.nbaDataService.getTeamFromList(this.editRewardsForm.get('equipeChampionne').value);
+    const meilleurContreur = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('meilleurContreur').value);
+    const meilleurIntercepteur = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('meilleurIntercepteur').value);
+    const meilleurSixiemeHomme = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('meilleurSixiemeHomme').value);
+    const meilleurProgression = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('meilleurProgression').value);
+    const meilleurAttaque = this.nbaDataService.getTeamFromList(this.editRewardsForm.get('meilleurAttaque').value);
+    const meilleurDefense = this.nbaDataService.getTeamFromList(this.editRewardsForm.get('meilleurDefense').value);
+    const meilleurBilan = this.nbaDataService.getTeamFromList(this.editRewardsForm.get('meilleurBilan').value);
+    const pireBilan = this.nbaDataService.getTeamFromList(this.editRewardsForm.get('pireBilan').value);
+    const plusGrosScoreJoueur = this.editRewardsForm.get('plusGrosScoreJoueur').value;
+    const joueurQuiMarqueLePlus = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('joueurQuiMarqueLePlus').value);
+    const joueurFautesTechniques = this.nbaDataService.getPlayerFromList(this.editRewardsForm.get('joueurFautesTechniques').value);
 
     const rewards = <Rewards>({
       mvpSaison: mvpSaison || null,
       mvpJoker: mvpJoker || null,
-      roy: roy || null
+      roy: roy || null,
+      royJoker: royJoker || null,
+      defenseurAnnee: defenseurAnnee || null,
+      meilleurMarqueur: meilleurMarqueur || null,
+      meilleurPasseur: meilleurPasseur || null,
+      meilleurRebondeur: meilleurRebondeur || null,
+      coachAnnee: coachAnnee || null,
+      equipeChampionne: equipeChampionne || null,
+      meilleurContreur: meilleurContreur || null,
+      meilleurIntercepteur: meilleurIntercepteur || null,
+      meilleurSixiemeHomme: meilleurSixiemeHomme || null,
+      meilleurProgression: meilleurProgression || null,
+      meilleurAttaque: meilleurAttaque || null,
+      meilleurDefense: meilleurDefense || null,
+      meilleurBilan: meilleurBilan || null,
+      pireBilan: pireBilan || null,
+      plusGrosScoreJoueur: plusGrosScoreJoueur || null,
+      joueurQuiMarqueLePlus: joueurQuiMarqueLePlus || null,
+      joueurFautesTechniques: joueurFautesTechniques || null
     });
 
     // update rewards du joueur
