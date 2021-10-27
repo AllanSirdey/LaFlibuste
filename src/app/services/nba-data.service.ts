@@ -20,13 +20,13 @@ export class NbaDataService {
   coachsSubject = new Subject<Coach[]>();
 
   /*Endpoint équipes NBA */
-  private teamsUrl = 'http://data.nba.net/data/10s/prod/v1/2021/teams.json';
+  private teamsUrl = 'https://data.nba.net/data/10s/prod/v1/2021/teams.json';
 
   /*Endpoint joueurs NBA */
-  private playersUrl = 'http://data.nba.net/data/10s/prod/v1/2020/players.json';
+  private playersUrl = 'https://data.nba.net/data/10s/prod/v1/2020/players.json';
 
   /*Endpoint joueurs NBA */
-  private coachsUrl = 'http://data.nba.net/data/10s/prod/v1/2021/coaches.json';
+  private coachsUrl = 'https://data.nba.net/data/10s/prod/v1/2021/coaches.json';
 
   constructor(private _httpClient: HttpClient) {
     this.getTeamsFromApi();
