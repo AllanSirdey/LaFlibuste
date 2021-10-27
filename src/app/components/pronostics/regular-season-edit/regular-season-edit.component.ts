@@ -25,7 +25,7 @@ export class RegularSeasonEditComponent implements OnInit {
   teamsWest: Team[] = [];
 
   /*Endpoint équipes NBA */
-  private teamsUrl = 'http://data.nba.net/data/10s/prod/v1/2021/teams.json';
+  private teamsUrl = 'https://data.nba.net/data/10s/prod/v1/2021/teams.json';
 
   /* Formulaire réactif */
   formTeams: FormGroup;
