@@ -106,27 +106,27 @@ export class RewardsEditComponent implements OnInit, OnDestroy {
   }
 
   updateForm() {
-    this.editRewardsForm.get("mvpSaison").patchValue(this.user.pronostic.rewards.mvpSaison.id);
-    this.editRewardsForm.get("mvpJoker").patchValue(this.user.pronostic.rewards.mvpJoker.id);
-    this.editRewardsForm.get("roy").patchValue(this.user.pronostic.rewards.roy.id);
-    this.editRewardsForm.get("royJoker").patchValue(this.user.pronostic.rewards.royJoker.id);
-    this.editRewardsForm.get("defenseurAnnee").patchValue(this.user.pronostic.rewards.defenseurAnnee.id);
-    this.editRewardsForm.get("meilleurMarqueur").patchValue(this.user.pronostic.rewards.meilleurMarqueur.id);
-    this.editRewardsForm.get("meilleurPasseur").patchValue(this.user.pronostic.rewards.meilleurPasseur.id);
-    this.editRewardsForm.get("meilleurRebondeur").patchValue(this.user.pronostic.rewards.meilleurRebondeur.id);
-    this.editRewardsForm.get("coachAnnee").patchValue(this.user.pronostic.rewards.coachAnnee.id);
-    this.editRewardsForm.get("equipeChampionne").patchValue(this.user.pronostic.rewards.equipeChampionne.teamId);
-    this.editRewardsForm.get("meilleurContreur").patchValue(this.user.pronostic.rewards.meilleurContreur.id);
-    this.editRewardsForm.get("meilleurIntercepteur").patchValue(this.user.pronostic.rewards.meilleurIntercepteur.id);
-    this.editRewardsForm.get("meilleurSixiemeHomme").patchValue(this.user.pronostic.rewards.meilleurSixiemeHomme.id);
-    this.editRewardsForm.get("meilleurProgression").patchValue(this.user.pronostic.rewards.meilleurProgression.id);
-    this.editRewardsForm.get("meilleurAttaque").patchValue(this.user.pronostic.rewards.meilleurAttaque.teamId);
-    this.editRewardsForm.get("meilleurDefense").patchValue(this.user.pronostic.rewards.meilleurDefense.teamId);
-    this.editRewardsForm.get("meilleurBilan").patchValue(this.user.pronostic.rewards.meilleurBilan.teamId);
-    this.editRewardsForm.get("pireBilan").patchValue(this.user.pronostic.rewards.pireBilan.teamId);
-    this.editRewardsForm.get("plusGrosScoreJoueur").patchValue(this.user.pronostic.rewards.plusGrosScoreJoueur);
-    this.editRewardsForm.get("joueurQuiMarqueLePlus").patchValue(this.user.pronostic.rewards.joueurQuiMarqueLePlus.id);
-    this.editRewardsForm.get("joueurFautesTechniques").patchValue(this.user.pronostic.rewards.joueurFautesTechniques.id);
+    if (this.user.pronostic.rewards.mvpSaison != null) this.editRewardsForm.get("mvpSaison").patchValue(this.user.pronostic.rewards.mvpSaison.id);
+    if (this.user.pronostic.rewards.mvpJoker != null) this.editRewardsForm.get("mvpJoker").patchValue(this.user.pronostic.rewards.mvpJoker.id);
+    if (this.user.pronostic.rewards.roy != null) this.editRewardsForm.get("roy").patchValue(this.user.pronostic.rewards.roy.id);
+    if (this.user.pronostic.rewards.royJoker != null) this.editRewardsForm.get("royJoker").patchValue(this.user.pronostic.rewards.royJoker.id);
+    if (this.user.pronostic.rewards.defenseurAnnee != null) this.editRewardsForm.get("defenseurAnnee").patchValue(this.user.pronostic.rewards.defenseurAnnee.id);
+    if (this.user.pronostic.rewards.meilleurMarqueur != null) this.editRewardsForm.get("meilleurMarqueur").patchValue(this.user.pronostic.rewards.meilleurMarqueur.id);
+    if (this.user.pronostic.rewards.meilleurPasseur != null) this.editRewardsForm.get("meilleurPasseur").patchValue(this.user.pronostic.rewards.meilleurPasseur.id);
+    if (this.user.pronostic.rewards.meilleurRebondeur != null) this.editRewardsForm.get("meilleurRebondeur").patchValue(this.user.pronostic.rewards.meilleurRebondeur.id);
+    if (this.user.pronostic.rewards.coachAnnee != null) this.editRewardsForm.get("coachAnnee").patchValue(this.user.pronostic.rewards.coachAnnee.id);
+    if (this.user.pronostic.rewards.equipeChampionne != null) this.editRewardsForm.get("equipeChampionne").patchValue(this.user.pronostic.rewards.equipeChampionne.teamId);
+    if (this.user.pronostic.rewards.meilleurContreur != null) this.editRewardsForm.get("meilleurContreur").patchValue(this.user.pronostic.rewards.meilleurContreur.id);
+    if (this.user.pronostic.rewards.meilleurIntercepteur != null) this.editRewardsForm.get("meilleurIntercepteur").patchValue(this.user.pronostic.rewards.meilleurIntercepteur.id);
+    if (this.user.pronostic.rewards.meilleurSixiemeHomme != null) this.editRewardsForm.get("meilleurSixiemeHomme").patchValue(this.user.pronostic.rewards.meilleurSixiemeHomme.id);
+    if (this.user.pronostic.rewards.meilleurProgression != null) this.editRewardsForm.get("meilleurProgression").patchValue(this.user.pronostic.rewards.meilleurProgression.id);
+    if (this.user.pronostic.rewards.meilleurAttaque != null) this.editRewardsForm.get("meilleurAttaque").patchValue(this.user.pronostic.rewards.meilleurAttaque.teamId);
+    if (this.user.pronostic.rewards.meilleurDefense != null) this.editRewardsForm.get("meilleurDefense").patchValue(this.user.pronostic.rewards.meilleurDefense.teamId);
+    if (this.user.pronostic.rewards.meilleurBilan != null) this.editRewardsForm.get("meilleurBilan").patchValue(this.user.pronostic.rewards.meilleurBilan.teamId);
+    if (this.user.pronostic.rewards.pireBilan != null) this.editRewardsForm.get("pireBilan").patchValue(this.user.pronostic.rewards.pireBilan.teamId);
+    if (this.user.pronostic.rewards.plusGrosScoreJoueur != null) this.editRewardsForm.get("plusGrosScoreJoueur").patchValue(this.user.pronostic.rewards.plusGrosScoreJoueur);
+    if (this.user.pronostic.rewards.joueurQuiMarqueLePlus != null) this.editRewardsForm.get("joueurQuiMarqueLePlus").patchValue(this.user.pronostic.rewards.joueurQuiMarqueLePlus.id);
+    if (this.user.pronostic.rewards.joueurFautesTechniques != null) this.editRewardsForm.get("joueurFautesTechniques").patchValue(this.user.pronostic.rewards.joueurFautesTechniques.id);
   }
 
   onSubmit() {
