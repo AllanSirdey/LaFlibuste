@@ -24,6 +24,7 @@ export class UserService {
   */
   constructor() {
     this.getAllUtilisateurs();
+
     this.getUtilisateurConnecte();
   }
 
@@ -40,15 +41,41 @@ export class UserService {
   */
   getAllUtilisateurs() {
     firebase.database().ref('/users')
-      .on('value', (data: DataSnapshot) => {
+      .once('value', (data: DataSnapshot) => {
         this.utilisateurs = [];
         data.forEach((utilisateur) => {
           this.utilisateurs.push(utilisateur.val());
         });
+      }).then(() => {
+        this.calculDesPoints();
         this.utilisateurs.sort((a, b) => (a.points < b.points) ? 1 : -1)
         this.emitUtilisateurs();
+      });
+  }
+
+  calculDesPoints(){
+
+    let premierWest = "Houston Rockets";
+
+    for (var user of this.utilisateurs) {
+
+      console.log("Calcul des points de l'utilisateur " + user.nom);
+
+      user.points = 0;
+
+      if(user.pronostic != null && user.pronostic.classement_SR_west != null && user.pronostic.classement_SR_west[0] == premierWest){
+
+        if(user.pronostic.classement_SR_west[0] == premierWest)
+        {
+          user.points += 5;
+        }
+
+        // enregistrement des points necessaires ?
+        //this.enregistrerUtilisateur(user.uid, user)
+
       }
-      );
+    }
+
   }
 
   /*
@@ -107,8 +134,6 @@ export class UserService {
       }
     );
   }
-
-
 
   /*
   * Enregistrer un utilisateur dans la base de données firebase
